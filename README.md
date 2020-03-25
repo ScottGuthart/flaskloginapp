@@ -4,11 +4,11 @@ Flask App Template
 Inspired by and modeled after [Miguel Grinberg's Flask Tutorial](https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world). Check out this resource to understand more about how this code works.
 
 Includes:
-* Login with email confirmation
+* [Login / User Registration](https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-v-user-logins) with email confirmation
 * Bootstrap 4 via [bootstrap-flask](https://github.com/greyli/bootstrap-flask)
-* Heroku Procfile
+* [Heroku Procfile](https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-xviii-deployment-on-heroku)
 * Redirect to HTTPS and Content Security Policy (CSP) Support* via [flask-talisman](https://github.com/GoogleCloudPlatform/flask-talisman)
-* Blueprint app structure
+* [Blueprint app structure](https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-xv-a-better-application-structure)
 * Easy database upgrades via [flask-migrate](https://flask-migrate.readthedocs.io/en/latest/)
     
 <sub><sup>*This template ships with a more relaxed CSP than included with flask-talisman by default in order to allow Bootstrap 4 to work properly. Please refer to flask-talisman documentation to decide what's right for your site.</sup></sub>
@@ -26,5 +26,5 @@ Includes:
         MAIL_PASSWORD=examplepassword
         SECURITY_PASSWORD_SALT=put_your_password_salt_here
         SECRET_KEY=put_your_secret_key_here
-* In config.py, edit the admins list so that the first entry uses your 
+
 
