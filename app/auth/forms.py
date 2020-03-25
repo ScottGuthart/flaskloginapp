@@ -26,12 +26,18 @@ class RegistrationForm(FlaskForm):
         user = User.query.filter_by(email=email.data).first()
         if user is not None:
             raise ValidationError('Please use a different email address.')
+<<<<<<< HEAD
         #to allow specific email addresses to regiser
         if email.data.lower() in ['example@example.com']:
             return True
         #to restrict registration to specific domains
         if email.data.lower().split('@')[-1] not in ['gmail.com']:
             raise ValidationError("You need a gmail address to register.")
+=======
+        # to restrict registration to specific domains
+        # if email.data.split('@')[-1] not in ['gmail.com']:
+        #     raise ValidationError('Access only for radius | illumination.')
+>>>>>>> f63077f8992ea1024f406642f31ca1f94d55aa8e
 
 class ResetPasswordRequestForm(FlaskForm):
     email = StringField('Email', validators=[DataRequired(), Email()])
