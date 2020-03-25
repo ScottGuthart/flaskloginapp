@@ -1,9 +1,9 @@
 {% extends "base.html" %}
-{% import 'bootstrap/wtf.html' as wtf %}
+{% from 'bootstrap/form.html' import render_form %}
 
 {% block app_content %}
-<h1> Hello World!</h1>
-<p>
+<h1 class="mt-5"> Hello World!</h1>
+<p class="lead">
     This is the index page
 </p>
 {% endblock %}

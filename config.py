@@ -17,3 +17,4 @@ class Config(object):
     'sqlite:///' + os.path.join(basedir, 'app.db')
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     SECURITY_PASSWORD_SALT = os.environ.get('SECURITY_PASSWORD_SALT')
+    BOOTSTRAP_SERVE_LOCAL = True # disable CDN for bootstrap

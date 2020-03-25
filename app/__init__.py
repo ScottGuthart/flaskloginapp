@@ -8,6 +8,7 @@ from flask_login import LoginManager
 from flask_mail import Mail
 from flask_bootstrap import Bootstrap
 from config import Config
+from flask_talisman import Talisman # to force SSL if available
 
 db = SQLAlchemy()
 migrate = Migrate()
@@ -15,6 +16,14 @@ login = LoginManager()
 login.login_view = 'auth.login'
 mail = Mail()
 bootstrap = Bootstrap()
+talisman = Talisman()
+
+csp = {
+    'default-src': '\'self\'',
+    'img-src': 'data: \'self\'',
+    'script-src': '\'unsafe-inline\' \'self\'',
+    'style-src': '\'unsafe-inline\' \'self\'',
+}
 
 def create_app(config_class=Config):
     app = Flask(__name__)
@@ -25,6 +34,10 @@ def create_app(config_class=Config):
     login.init_app(app)
     mail.init_app(app)
     bootstrap.init_app(app)
+    talisman.init_app(app,
+        content_security_policy=csp,
+        content_security_policy_nonce_in=['script-src'])
+    # talisman.init_app(app, content_security_policy=None) # to disable CSP
 
     from app.auth import bp as auth_bp
     app.register_blueprint(auth_bp, url_prefix='/auth')

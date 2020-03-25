@@ -46,7 +46,7 @@ def register():
         flash('Check your email for a confirmation link!')
         confirm_url = url_for('auth.confirm_email', token=token, _external=True)
         send_email('[Flask App] Confirm your email',
-               sender='supermightyorg@gmail.com',
+               sender=current_app.config['ADMINS'][0],
                recipients=[user.email],
                text_body=render_template('email/activate.txt', user=form.username.data, confirm_url=confirm_url),
                html_body=render_template('email/activate.html', user=form.username.data, confirm_url=confirm_url))
@@ -109,7 +109,7 @@ def confirm_email(token):
         db.session.add(user)
         db.session.commit()
         flash('You have confirmed your account. Thanks!')
-    return redirect(url_for('auth.login'))
+    return redirect(url_for('main.index'))
 
 @login_required
 @bp.route('/resend')
@@ -117,7 +117,7 @@ def resend_confirmation():
     token = generate_confirmation_token(current_user.email)
     confirm_url = url_for('auth.confirm_email', token=token, _external=True)
     send_email('[Flask App] Confirm your email',
-               sender='supermightyorg@gmail.com',
+               sender=current_app.config['ADMINS'][0],
                recipients=[current_user.email],
                text_body=render_template('email/activate.txt', user=current_user, confirm_url=confirm_url),
                html_body=render_template('email/activate.html', user=current_user, confirm_url=confirm_url))
