@@ -1,7 +1,7 @@
 # flaskloginapp
 Flask App Template
 
-Inspired by and modeled after [Miguel Grinberg's Flask Tutorial](https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world). Links are included corresponding sections in the tutorial if you want to learn more.
+Inspired by and modeled after [Miguel Grinberg's Flask Tutorial](https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world). Links are included to corresponding sections in the tutorial if you want to learn more.
 
 Includes:
 * Login / User Registration with email confirmation ([Learn More](https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-v-user-logins))
