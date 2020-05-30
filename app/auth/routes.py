@@ -13,10 +13,9 @@ import datetime
 
 @bp.route('/login', methods=['GET', 'POST'])
 def login():
-    if current_user.is_authenticated:
-        if not current_user.confirmed:
-            flash('Please confirm your account.')
-            return redirect('auth.unconfirmed')
+    if current_user.is_authenticated and not current_user.confirmed:
+        flash('Please confirm your account.')
+        return redirect('auth.unconfirmed')
     form = LoginForm()
     if form.validate_on_submit():
         user = User.query.filter_by(username=form.username.data).first()
